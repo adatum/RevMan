@@ -106,7 +106,9 @@ shinyServer(function(input, output) {
         arp_now <- metrics_Data()$ARPAL
         
         valueBox(paste(round(arp_now, 2), "$"), 
-                 subtitle = a("Adjusted RevPAL", href = "http://www.hospitalitynet.org/news/4066863.html"), 
+                 subtitle = a("Adjusted RevPAL", 
+                              href = "http://www.hospitalitynet.org/news/4066863.html",
+                              target = "_blank"), 
                  icon = icon("random"),
                  color = "yellow"
         )
@@ -188,10 +190,9 @@ shinyServer(function(input, output) {
             gs_add_row(ws = "Historical_NPS", input = c(date, nps))
     }
     
-    observeEvent(input$nps_submit,
-        {updateNPS(GSHEET_URL, input$newNPS_date, input$newNPS_value)}
-    )
-    
+    observeEvent(input$nps_submit, {
+        updateNPS(GSHEET_URL, input$newNPS_date, input$newNPS_value)
+    })
     
     
 })

@@ -24,7 +24,6 @@ dashboardPage(skin = "purple",
             br(),
             a("View/edit data in browser", href = GSHEET_URL, target = "_blank")
             
-            
         )
     ),
     
@@ -65,6 +64,7 @@ dashboardPage(skin = "purple",
             
             # ADR tab -------------------------------------------------------
             tabItem(tabName = "adr",
+                    
                     tabBox(
                         width = "1024px",
                         
@@ -83,14 +83,14 @@ dashboardPage(skin = "purple",
             
             # NPS tab -------------------------------------------------------
             tabItem(tabName = "nps",
-                    
+
                     box(
-                        height = "400px",
+                        #height = "400px",
                         width = "1024px",
                         
                         dygraphOutput("npsPlot")
                     ),
-                    
+
                     fluidRow(
                         
                         box(collapsible = TRUE,
@@ -115,6 +115,8 @@ dashboardPage(skin = "purple",
                                          value = 50,
                                          step = 1
                             ),
+                            
+                            
                             
                             actionButton("nps_submit", 
                                          label = "Submit", 
