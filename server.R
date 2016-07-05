@@ -164,7 +164,7 @@ shinyServer(function(input, output) {
     
     # NPS plot
     nps_ts <- reactive({
-        nps_ts <- xts(nps_Data()$NPS, order.by = nps$Date)
+        nps_ts <- xts(nps_Data()$NPS, order.by = nps_Data()$Date)
         names(nps_ts) <- "NPS"
         return(nps_ts)
     })
