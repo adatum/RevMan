@@ -156,7 +156,7 @@ shinyServer(function(input, output) {
     })
     
     output$adrtsTable <- DT::renderDataTable({
-        DT::datatable(adr_Data(), filter = "bottom")
+        DT::datatable(adr_Data(), filter = "top")
     })
     
     

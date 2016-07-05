@@ -66,7 +66,6 @@ dashboardPage(skin = "purple",
             # ADR tab -------------------------------------------------------
             tabItem(tabName = "adr",
                     tabBox(
-                        height = "400px",
                         width = "1024px",
                         
                         tabPanel("Year over Year ADR",
