@@ -89,28 +89,37 @@ dashboardPage(skin = "purple",
                         dygraphOutput("npsPlot")
                     ),
                     
-                    box(collapsible = TRUE,
-                        title = tagList(icon = icon("pencil"), 
-                                        "Enter NPS data"),
+                    fluidRow(
                         
-                        dateInput("newNPS_date", 
-                                  label = "Date", 
-                                  startview = Sys.Date(), 
-                                  min = Sys.Date()
-                                  ),
-                        
-                        numericInput("newNPS_value",
-                                     label = "NPS value", 
-                                     min = -100,
-                                     max = 100, 
-                                     value = 50,
-                                     step = 1
+                        box(collapsible = TRUE,
+                            title = "NPS data",
+                            DT::dataTableOutput("npsTable")
                         ),
                         
-                        actionButton("nps_submit", 
-                                     label = "Submit", 
-                                     icon = icon("check")
-                                     )
+                        box(collapsible = TRUE,
+                            title = tagList(icon = icon("pencil"), 
+                                            "Enter NPS data"),
+                            
+                            dateInput("newNPS_date", 
+                                      label = "Date", 
+                                      startview = Sys.Date(), 
+                                      min = Sys.Date()
+                            ),
+                            
+                            numericInput("newNPS_value",
+                                         label = "NPS value", 
+                                         min = -100,
+                                         max = 100, 
+                                         value = 50,
+                                         step = 1
+                            ),
+                            
+                            actionButton("nps_submit", 
+                                         label = "Submit", 
+                                         icon = icon("check")
+                            )
+                        )
+                    
                     )
                 
             )

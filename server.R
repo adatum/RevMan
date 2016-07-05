@@ -148,7 +148,6 @@ shinyServer(function(input, output) {
                                   format = "%Y %B")
                       )
         names(adr_ts) <- "ADR"
-        
         return(adr_ts)
     })
         
@@ -157,7 +156,7 @@ shinyServer(function(input, output) {
     })
     
     output$adrtsTable <- DT::renderDataTable({
-        DT::datatable(adr_Data())
+        DT::datatable(adr_Data(), filter = "bottom")
     })
     
     
@@ -166,11 +165,20 @@ shinyServer(function(input, output) {
     # NPS plot
     nps_ts <- reactive({
         nps_ts <- xts(nps_Data()$NPS, order.by = nps$Date)
+        names(nps_ts) <- "NPS"
+        return(nps_ts)
     })
     
     output$npsPlot <- renderDygraph({
         dygraph(nps_ts(), ylab = "NPS")
     })
+    
+    
+    # NPS data table
+    
+    output$npsTable <- DT::renderDataTable(
+        DT::datatable(nps_Data())
+    )
     
     
     # Add NPS data
@@ -183,6 +191,7 @@ shinyServer(function(input, output) {
     observeEvent(input$nps_submit,
         {updateNPS(GSHEET_URL, input$newNPS_date, input$newNPS_value)}
     )
+    
     
     
 })
