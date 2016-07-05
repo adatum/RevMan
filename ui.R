@@ -22,7 +22,7 @@ dashboardPage(skin = "purple",
             actionButton("refresh", "Refresh Data", icon = icon("refresh")),
             br(),
             br(),
-            a("View/edit data in browser", href = GSHEET_URL)
+            a("View/edit data in browser", href = GSHEET_URL, target = "_blank")
             
             
         )
@@ -37,8 +37,11 @@ dashboardPage(skin = "purple",
             tabItem(tabName = "overview",
                 helpText("Welcome to your Revenue Management Dashboard.
                    Documentation available", 
-                   a("here.", href = "http://rpubs.com/adatum/RevMan"),
-                   "Have a profitable day!"),
+                   a("here.", 
+                     href = "http://rpubs.com/adatum/RevMan", 
+                     target = "_blank"),
+                   "Have a profitable day!"
+                   ),
                 
                 h3("Business Metrics Summary"),
                 
