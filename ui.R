@@ -80,11 +80,41 @@ dashboardPage(skin = "purple",
             
             
             # NPS tab -------------------------------------------------------
-            tabItem(tabName = "nps"
+            tabItem(tabName = "nps",
+                    
+                    box(
+                        height = "400px",
+                        width = "1024px",
+                        
+                        dygraphOutput("npsPlot")
+                    ),
+                    
+                    box(collapsible = TRUE,
+                        title = tagList(icon = icon("pencil"), 
+                                        "Enter NPS data"),
+                        
+                        dateInput("newNPS_date", 
+                                  label = "Date", 
+                                  startview = Sys.Date(), 
+                                  min = Sys.Date()
+                                  ),
+                        
+                        numericInput("newNPS_value",
+                                     label = "NPS value", 
+                                     min = -100,
+                                     max = 100, 
+                                     value = 50,
+                                     step = 1
+                        ),
+                        
+                        actionButton("nps_submit", 
+                                     label = "Submit", 
+                                     icon = icon("check")
+                                     )
+                    )
                 
             )
         )
     )
 )
 
-#icon("line-chart")

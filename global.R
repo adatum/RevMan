@@ -16,13 +16,3 @@ GSHEET_URL <- "https://docs.google.com/spreadsheets/d/1LySNMsSKJhahSGK81gq_CY7t1
 # Read only URL:
 #GSHEET_URL <- "https://docs.google.com/spreadsheets/d/1LySNMsSKJhahSGK81gq_CY7t1glGU6E8TJWppFZMdLk/pubhtml"
 
-
-# # NPS time series
-# nps <- GSHEET_URL %>% 
-#     gs_url() %>% 
-#     gs_read(ws = "Historical_NPS")
-# 
-# nps_ts <- xts(nps$NPS, order.by = nps$Date)
-# 
-# dygraph(nps_ts)
-

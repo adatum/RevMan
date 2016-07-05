@@ -163,4 +163,26 @@ shinyServer(function(input, output) {
     
     # NPS body -------------------------------------------------------------
     
+    # NPS plot
+    nps_ts <- reactive({
+        nps_ts <- xts(nps_Data()$NPS, order.by = nps$Date)
+    })
+    
+    output$npsPlot <- renderDygraph({
+        dygraph(nps_ts(), ylab = "NPS")
+    })
+    
+    
+    # Add NPS data
+    updateNPS <- function(URL, date, nps){
+        URL %>%
+            gs_url() %>%
+            gs_add_row(ws = "Historical_NPS", input = c(date, nps))
+    }
+    
+    observeEvent(input$nps_submit,
+        {updateNPS(GSHEET_URL, input$newNPS_date, input$newNPS_value)}
+    )
+    
+    
 })
