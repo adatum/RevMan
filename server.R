@@ -11,7 +11,7 @@ shinyServer(function(input, output) {
         input$refresh
         
         # Current metrics
-        current_metrics <- URL %>% 
+        current_metrics <- GSHEET_URL %>% 
             gs_url() %>% 
             gs_read(ws = "Current_Metrics", range = "A2:B12")
         

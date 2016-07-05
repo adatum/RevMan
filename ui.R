@@ -22,7 +22,7 @@ dashboardPage(skin = "purple",
             actionButton("refresh", "Refresh Data", icon = icon("refresh")),
             br(),
             br(),
-            a("View/edit data in browser", href = GSHEET_URL2)
+            a("View/edit data in browser", href = GSHEET_URL)
             
             
         )
