@@ -116,8 +116,6 @@ dashboardPage(skin = "purple",
                                          step = 1
                             ),
                             
-                            
-                            
                             actionButton("nps_submit", 
                                          label = "Submit", 
                                          icon = icon("check")

@@ -6,6 +6,8 @@ shinyServer(function(input, output) {
 
     # Data loading functions -----------------------------------------------
     
+    update_flags <- reactiveValues(metrics = 0, adr = 0, nps = 0)
+    
     metrics_Data <- reactive({
         #refresh data on Refresh button click
         input$refresh
@@ -39,6 +41,8 @@ shinyServer(function(input, output) {
     nps_Data <- reactive({
         #refresh data on Refresh button click
         input$refresh
+        update_flags$nps
+        cat(file = stderr(), "update_flags$nsp = ", update_flags$nps, "\n")
         
         nps <- GSHEET_URL %>% 
             gs_url() %>% 
@@ -187,7 +191,10 @@ shinyServer(function(input, output) {
     updateNPS <- function(URL, date, nps){
         URL %>%
             gs_url() %>%
-            gs_add_row(ws = "Historical_NPS", input = c(date, nps))
+            gs_add_row(ws = "Historical_NPS", input = c(as.character(date), nps))
+        
+        # cause NPS data to be reloaded
+        update_flags$nps <- update_flags$nps + 1 
     }
     
     observeEvent(input$nps_submit, {
