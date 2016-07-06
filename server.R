@@ -72,7 +72,8 @@ shinyServer(function(input, output) {
         valueBox(paste(round(adr_now, 2), "$"),
                  subtitle = "ADR", 
                  icon = icon("diamond"),
-                 color = "teal"
+                 color = ifelse(adr_now >= 100, "green", 
+                                ifelse(adr_now > 70, "yellow", "red")) #"teal"
         )
     })
     
@@ -82,7 +83,8 @@ shinyServer(function(input, output) {
         valueBox(paste(occ_now*100, "%"), 
                  subtitle = "Occupancy", 
                  icon = icon("bed"),
-                 color = "maroon"
+                 color = ifelse(occ_now >= .65, "green", 
+                                ifelse(occ_now > 0.5, "yellow", "red")) #"maroon"
         )
     })
     
@@ -92,7 +94,8 @@ shinyServer(function(input, output) {
         valueBox(nloc_now, 
                  subtitle = "Locations", 
                  icon = icon("flag"),
-                 color = "blue"
+                 color = ifelse(nloc_now >= 200, "green", 
+                                ifelse(nloc_now > 150, "yellow", "red")) #"blue"
         )
     })
     
@@ -100,9 +103,10 @@ shinyServer(function(input, output) {
         rp_now <- metrics_Data()$RevPAL
         
         valueBox(paste(round(rp_now, 2), "$"), 
-                 subtitle = "Revenue per available location", 
+                 subtitle = "Revenue per avail. location", 
                  icon = icon("dollar"),
-                 color = "orange"
+                 color = ifelse(rp_now >= 100, "green", 
+                                ifelse(rp_now > 75, "yellow", "red")) #"orange"
         )
     })
     
@@ -114,7 +118,8 @@ shinyServer(function(input, output) {
                               href = "http://www.hospitalitynet.org/news/4066863.html",
                               target = "_blank"), 
                  icon = icon("random"),
-                 color = "yellow"
+                 color = ifelse(arp_now >= 100, "green", 
+                                ifelse(arp_now > 75, "yellow", "red")) #"yellow"
         )
     })
     
@@ -124,7 +129,8 @@ shinyServer(function(input, output) {
         valueBox(paste(round(profit_now, 2), "$"), 
                  subtitle = "Profit", 
                  icon = icon("bank"),
-                 color = "olive"
+                 color = ifelse(profit_now >= 10000, "green", 
+                                ifelse(profit_now > 1000, "yellow", "red")) #"purple"
         )
     })
     
@@ -141,8 +147,7 @@ shinyServer(function(input, output) {
             ylab("ADR [$]") +
             ggtitle("Average daily rate by month") +
             theme_classic() +
-            theme(axis.text.x = element_text(angle = 45),
-                  panel.margin.y = unit(5, "cm"))
+            theme(axis.text.x = element_text(angle = 45))
         
         ggplotly(adrplot)
     })
