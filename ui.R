@@ -38,11 +38,11 @@ dashboardPage(skin = "purple",
             # Overview tab --------------------------------------------------
             tabItem(tabName = "overview",
                 helpText("Welcome to your Revenue Management Dashboard.
-                   Documentation available", 
-                   a("here.", 
+                   See highlights", 
+                   a("here", 
                      href = "http://rpubs.com/adatum/RevMan", 
                      target = "_blank"),
-                   "Have a profitable day!"
+                   " or documentation in the About tab. Have a profitable day!"
                    ),
                 
                 h3("Business Metrics Summary"),
@@ -149,7 +149,7 @@ dashboardPage(skin = "purple",
                     p("The main sections of the Dashboard are:"),
                     tags$ul(
                         tags$li(strong("Overview tab: "), "Industry-standard 
-                                Key performance indicators for monitoring the 
+                                Key Performance Indicators for monitoring the 
                                 state of the business in real time. Implements 
                                 a red-light/yellow-light/green-light color-coding
                                 scheme based on underlying threshold values, to 

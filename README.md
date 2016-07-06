@@ -5,10 +5,11 @@ RevMan is a proof-of-concept productivity tool for the hospitality industry high
 
 The main sections of the Dashboard are:
 
-* **Overview tab:** Industry-standard Key performance indicators for monitoring the state of the business in real time. Implements a red-light/yellow-light/green-light color-coding scheme based on underlying threshold values, to allow an at-a-glance overview of business health. *Tip: try different values of the modifiable parameters in the Google Sheet to see color changes!*
+* **Overview tab:** Industry-standard Key Performance Indicators for monitoring the state of the business in real time. Implements a red-light/yellow-light/green-light color-coding scheme based on underlying threshold values, to allow an at-a-glance overview of business health. *Tip: try different values of the modifiable parameters in the Google Sheet to see color changes!*
 
 * **ADR tab:** ADR (average daily rate) being an important hospitality business metric has its own page for viewing year-over-year changes in the metric, as well as exploring the raw data values. Tip: plots are highly interactive. Zooming, rescaling, as well as filtering data by the legend are all possible! The data table can also be searched, sorted, and filtered.
-NPS tab: NPS (net promoter score) reveals customer satisfaction trends. *Tip: try entering new NPS entries with the data entry tool. The plot and table will automatically refresh.*
+
+* **NPS tab:** NPS (net promoter score) reveals customer satisfaction trends. *Tip: try entering new NPS entries with the data entry tool. The plot and table will automatically refresh.*
 
 
 What other great features, you ask? How about:
