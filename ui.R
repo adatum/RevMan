@@ -31,6 +31,8 @@ dashboardPage(skin = "purple",
     # Body ------------------------------------------------------------------
     dashboardBody(
         
+        useShinyjs(),
+        
         tabItems(
             
             # Overview tab --------------------------------------------------
@@ -102,6 +104,14 @@ dashboardPage(skin = "purple",
                         box(collapsible = TRUE,
                             title = tagList(icon = icon("pencil"), 
                                             "Enter NPS data"),
+                            
+                            # # unfocus/blur button after click
+                            # tags$script(
+                            #     HTML("$(document).ready(function() {
+                            #         $('.btn').on('click', function(){$(this).blur()});
+                            #         })"
+                            #     )
+                            # ), 
                             
                             dateInput("newNPS_date", 
                                       label = "Date", 

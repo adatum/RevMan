@@ -114,7 +114,7 @@ shinyServer(function(input, output) {
         arp_now <- metrics_Data()$ARPAL
         
         valueBox(paste(round(arp_now, 2), "$"), 
-                 subtitle = a("Adjusted RevPAL", 
+                 subtitle = a("Adjusted RevPAL",
                               href = "http://www.hospitalitynet.org/news/4066863.html",
                               target = "_blank"), 
                  icon = icon("random"),
@@ -203,7 +203,9 @@ shinyServer(function(input, output) {
     }
     
     observeEvent(input$nps_submit, {
+        shinyjs::disable("nps_submit")  # disable submit button while working
         updateNPS(GSHEET_URL, input$newNPS_date, input$newNPS_value)
+        shinyjs::enable("nps_submit")
     })
     
     
